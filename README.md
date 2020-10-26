@@ -81,7 +81,9 @@ See the first paragraph - [Installation](#app-installation).
 
 ## 5) Tests
 
-    rake test
+see `test/controllers/api_controller_test.rb`
+
+    rake test TEST=test/controllers/api_controller_test.rb
 
 ## 6) API ~~description~~ overview :)
 
@@ -107,10 +109,18 @@ See the first paragraph - [Installation](#app-installation).
 }
 ```
 
-**Response:**
+**Success Response:**
 ```json
 {
   "state_description": "Aktivní v držení klienta",
   "validity_end": "12.08.2020"
+}
+```
+
+**Error Response:**
+```json
+{
+  "error_kind_of_the_error": "...",
+  ...
 }
 ```

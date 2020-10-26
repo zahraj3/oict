@@ -3,7 +3,7 @@
 class OictClient
   prepend SimpleCommand
 
-  LITACKA_URL = 'http://rivate-264465-litackaapi.apiary-mock.com/cards/'.freeze
+  LITACKA_URL = 'http://private-264465-litackaapi.apiary-mock.com/cards/'.freeze
   X_API_KEY = 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2h5dHJ5IE9kcG92aWRhYyIsInJvbGVzIjpbInVzZXIiXSwiaWF0IjoxNTExNDUwNTk3fQ.p-MUGvUsUeQwsfRJSCdTm8eAP_MnyRrM58q6ehUjGLiDu5Bjkm7Gvbs0JTDitzPvWejkfrw-4fMXKjHKfj6gBQ'.freeze
 
   def initialize(request)

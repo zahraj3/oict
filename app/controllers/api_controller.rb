@@ -18,7 +18,7 @@ class ApiController < ApplicationController
         json_response(card_detail.errors)
       end
     else
-      json_response('Please, check params')
+      json_response({error_params: 'Please, check params.'})
     end
   end
 
