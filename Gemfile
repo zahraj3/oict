@@ -6,23 +6,15 @@ jruby_version = '9.2.5.0'
 ruby '2.5.0'
 
 gem 'activerecord-jdbcmysql-adapter', platform: :jruby
+gem 'bootsnap', '>= 1.4.2', require: false
+gem 'jbuilder', '~> 2.7'
+gem 'puma', '~> 4.1'
 gem 'rails', '~> 5.2.2'
 gem 'rest-client'
-gem 'puma', '~> 4.1'
 gem 'simple_command'
-
-# Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'webpacker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

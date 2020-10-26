@@ -1,7 +1,7 @@
 default: &default
   adapter: mysql
-  username: root
-  password: Icosoft!
+  username: username
+  password: password
   pool: 50
   encoding: utf8
 
