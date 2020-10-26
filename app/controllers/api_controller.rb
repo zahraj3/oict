@@ -1,6 +1,8 @@
 class ApiController < ApplicationController
   require 'rest-client'
 
+  http_basic_authenticate_with name: "oict", password: "secret", except: :state
+
   def state
     json_response({app_state: 'running'})
   end
@@ -10,7 +12,7 @@ class ApiController < ApplicationController
     response_validity = Oictclient.call("#{params[:cln_or_id]}/validity")
 
     formated_response = format_response(response_state.result, response_validity.result)
-    json_response(format_response)
+    json_response(formated_response)
   end
 
   private
