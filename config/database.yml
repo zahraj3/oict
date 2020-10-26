@@ -1,0 +1,16 @@
+default: &default
+  adapter: mysql
+  username: root
+  password: Icosoft!
+  pool: 50
+  encoding: utf8
+
+development:
+  <<: *default
+  host: localhost
+  database: oict_dev
+
+test:
+  <<: *default
+  host: localhost
+  database: oict_test
