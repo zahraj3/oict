@@ -8,19 +8,26 @@ class ApiController < ApplicationController
   end
 
   def card_info
-    response_state = Oictclient.call("#{params[:cln_or_id]}/state")
-    response_validity = Oictclient.call("#{params[:cln_or_id]}/validity")
+    unless card_info_params.empty?
+      card_detail = CardDetail.call(card_info_params[:cln_or_id])
 
-    formated_response = format_response(response_state.result, response_validity.result)
-    json_response(formated_response)
+      if card_detail.success?
+        formated_response = format_response(card_detail.result)
+        json_response(formated_response)
+      else
+        json_response(card_detail.errors)
+      end
+    else
+      json_response('Please, check params')
+    end
   end
 
   private
 
-  def format_response(state, validity)
+  def format_response(card_detail)
     {
-     state_description: state[:state_description],
-     validity_end: formate_date(validity[:validity_end])
+     state_description: card_detail[:state_description],
+     validity_end: formate_date(card_detail[:validity_end])
     }
   end
 
@@ -29,6 +36,9 @@ class ApiController < ApplicationController
   end
 
   def card_info_params
-    params.required(:cln_or_id)
+    card_info_params = params.permit(:cln_or_id)
+
+    card_info_params
   end
+
 end
